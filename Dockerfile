@@ -12,6 +12,11 @@ RUN sed -ri -e 's!/var/www/html!${WEB_DOCUMENT_ROOT}!g' /etc/apache2/sites-avail
         rewrite \
         deflate \
         expires \
+        actions \
+        proxy \
+        proxy_fcgi \
+        ssl \
+        headers \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         unzip \
@@ -44,8 +49,8 @@ RUN sed -ri -e 's!/var/www/html!${WEB_DOCUMENT_ROOT}!g' /etc/apache2/sites-avail
             echo 'opcache.enable_cli=1'; \
             echo 'upload_max_filesize=256M'; \
             echo 'post_max_size=256M'; \
-            echo 'memory_limit=1024M'; \
-            echo 'max_execution_time=120'; \
+            echo 'memory_limit=2048M'; \
+            echo 'max_execution_time=180'; \
         } > $PHP_INI_DIR/conf.d/php-custom.ini \
     && pecl install apcu \
     && pecl install yaml \
