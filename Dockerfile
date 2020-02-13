@@ -14,6 +14,7 @@ RUN sed -ri -e 's!/var/www/html!${WEB_DOCUMENT_ROOT}!g' /etc/apache2/sites-avail
         expires \
         actions \
         proxy \
+        proxy_http \
         proxy_fcgi \
         ssl \
         headers \
