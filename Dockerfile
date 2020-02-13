@@ -54,4 +54,5 @@ RUN sed -ri -e 's!/var/www/html!${WEB_DOCUMENT_ROOT}!g' /etc/apache2/sites-avail
         } > $PHP_INI_DIR/conf.d/php-custom.ini \
     && pecl install apcu \
     && pecl install yaml \
-    && docker-php-ext-enable apcu yaml
+    && docker-php-ext-enable apcu yaml \
+    && php -i
