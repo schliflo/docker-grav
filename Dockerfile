@@ -45,6 +45,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     nginx \
     supervisor \
     curl \
+    wget \
     unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
@@ -58,6 +59,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     git \
     cron \
     nano \
+    htop \
     && docker-php-ext-install opcache \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
