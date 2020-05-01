@@ -8,6 +8,9 @@ FROM php:${PHP_VERSION}-fpm
 ENV APPLICATION_USER=www-data \
     APPLICATION_GROUP=www-data \
     WEB_DOCUMENT_ROOT=/var/www/html \
+    WEB_DOCUMENT_ROOT=/var/www/html \
+    IMAGINARY_PORT=9001 \
+    PHP_FPM_PORT=9000 \
     PORT=80
 
 WORKDIR $WEB_DOCUMENT_ROOT
@@ -83,6 +86,8 @@ CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1/fpm-ping
 
 # Add custom nginx configs
+COPY conf/wait-for-it.sh /usr/local/bin/wait-for-it.sh
+COPY conf/start-nginx.sh /usr/local/bin/start-nginx.sh
 COPY conf/php.ini $PHP_INI_DIR/conf.d/custom.ini
 COPY conf/fpm-www.conf $PHP_INI_DIR/../php-fpm.d/www.conf
 COPY conf/nginx.conf /etc/nginx/nginx.conf
