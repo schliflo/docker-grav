@@ -49,6 +49,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     supervisor \
     curl \
     wget \
+    wget2 \
     unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
