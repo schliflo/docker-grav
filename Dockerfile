@@ -24,6 +24,8 @@ COPY --from=imaginary /etc/ssl/certs /etc/ssl/certs
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update \
     && apt-get install --no-install-recommends -y \
+    # imaginary deps
+    procps \
     libglib2.0-0 \
     libjpeg62-turbo \
     libpng16-16 \
@@ -45,6 +47,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
     liborc-0.4-0 \
     librsvg2-2 \
     libcfitsio7 \
+    libimagequant0 \
+    libheif1 \
+    # webserver deps
     nginx \
     supervisor \
     gettext-base \
