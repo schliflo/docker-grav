@@ -24,7 +24,7 @@ COPY --from=imaginary /etc/ssl/certs /etc/ssl/certs
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update \
     && apt-get install --no-install-recommends -y \
-    # imaginary deps
+    # imaginary deps (see https://github.com/h2non/imaginary/blob/master/Dockerfile)
     procps \
     libglib2.0-0 \
     libjpeg62-turbo \
@@ -49,13 +49,14 @@ RUN DEBIAN_FRONTEND=noninteractive \
     libcfitsio7 \
     libimagequant0 \
     libheif1 \
-    # webserver deps
+    # webserver/build deps
     nginx \
     supervisor \
     gettext-base \
     curl \
     wget \
     wget2 \
+    # grav deps (see https://github.com/getgrav/docker-grav/blob/master/Dockerfile)
     unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
