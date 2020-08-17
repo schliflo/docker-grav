@@ -11,5 +11,5 @@ wait-for-it.sh 127.0.0.1:$PHP_FPM_PORT --timeout=60 --strict
 echo "STARTUP: php-fpm running on $PHP_FPM_PORT"
 
 #start nginx
-echo "STARTUP: starting nginx"
-nginx -g 'daemon off;'
+echo "STARTUP: starting nginx on port $PORT"
+envsubst '\$PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'

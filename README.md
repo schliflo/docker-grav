@@ -1,1 +1,1 @@
-# PHP & Apache base image prepared for grav CMS
+# PHP & Nginx & Imaginary base image prepared for grav CMS

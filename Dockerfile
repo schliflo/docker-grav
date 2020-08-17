@@ -91,5 +91,5 @@ COPY conf/wait-for-it.sh /usr/local/bin/wait-for-it.sh
 COPY conf/start-nginx.sh /usr/local/bin/start-nginx.sh
 COPY conf/php.ini $PHP_INI_DIR/conf.d/custom.ini
 COPY conf/fpm-www.conf $PHP_INI_DIR/../php-fpm.d/www.conf
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf.template
 COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
