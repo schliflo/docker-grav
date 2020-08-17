@@ -47,6 +47,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     libcfitsio7 \
     nginx \
     supervisor \
+    gettext-base \
     curl \
     wget \
     wget2 \
