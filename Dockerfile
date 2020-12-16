@@ -3,6 +3,8 @@ ARG PHP_VERSION=7.4
 
 FROM h2non/imaginary:${IMAGINARY_VERSION} as imaginary
 
+FROM nginx as nginx
+
 FROM php:${PHP_VERSION}-fpm
 
 ENV APPLICATION_USER=www-data \
@@ -87,6 +89,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && rm -f /etc/nginx/conf.d/default.conf
+
+# Add official nginx mime.types
+COPY --from=nginx /etc/nginx/mime.types /etc/nginx/mime.types
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
